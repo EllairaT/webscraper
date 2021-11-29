@@ -2,7 +2,8 @@
   "name": "webscraper",
   "version": "1.0.0",
   "description": "ellai web scraper",
-  "main": "index.js",
+  "main": "scrape.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,15 @@
   },
   "homepage": "https://github.com/EllairaT/webscraper#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10"
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "node-fetch": "^3.1.0",
+    "prettier": "^2.5.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }
