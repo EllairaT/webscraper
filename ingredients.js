@@ -18,5 +18,8 @@ export default function getIngredients($) {
         ingredientsList.push({ section: [currentSection], ingredient: [text] })
       }
     })
-  return groupBy(ingredientsList, 'section', 'ingredient')
+
+  const result = groupBy(ingredientsList, 'section', 'ingredient')
+
+  return result
 }
