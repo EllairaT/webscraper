@@ -1,12 +1,12 @@
 // THIS WEBSCRAPER ONLY WORKS ON taste.com.au !!!!!!!!!!!
 // DOES NOT WORK ON OTHER WEBSITES
-// @author: Ellaira Torio
+// @author: Ellaira Torio, Dec 2021
 
 import axios from 'axios'
 import cheerio from 'cheerio'
 import promptSync from 'prompt-sync'
 import fs from 'fs'
-import parseIngredients from './util.js'
+import groupBy from './util.js'
 
 var ingredientsList = []
 
@@ -21,7 +21,6 @@ axios
   .then((res) => {
     let $ = cheerio.load(res.data)
     const header = $('.recipe-title-container h1').text()
-    let list = []
     // ingredients that do not have section headings are assumed to be for the 'main' dish
 
     $('div[id="tabIngredients"]')
@@ -33,14 +32,14 @@ axios
         if ($(element).attr('class') === 'section-heading') {
           currentSection = text
         } else if ($(element).find('div[class="ingredient-description"]').text().trim()) {
-          ingredientsList.push({ [currentSection]: text })
+          ingredientsList.push({ section: [currentSection], ingredient: [text] })
         }
       })
 
     console.log('-----START------')
-    parseIngredients(ingredientsList)
+    console.log(groupBy(ingredientsList, 'section', 'ingredient'))
     console.log('------END------')
   })
   .catch((err) => {
-    console.log(err)
+    console.log('an error occured: ', err)
   })
