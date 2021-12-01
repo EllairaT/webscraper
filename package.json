@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
+    "lodash": "^4.17.21",
     "node-fetch": "^3.1.0",
     "prettier": "^2.5.0",
     "prompt-sync": "^4.2.0"
