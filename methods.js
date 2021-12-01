@@ -1,5 +1,4 @@
-import groupBy from './util.js'
-
+// accepts cheerio document
 export default function getRecipeMethod($) {
   var methodsList = []
   $('div[id="tabMethodSteps"]')

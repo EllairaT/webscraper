@@ -1,5 +1,6 @@
 import groupBy from './util.js'
 
+// accepts cheerio document
 export default function getIngredients($) {
   // ingredients that do not have section headings are assumed to be for the 'main' dish
   var ingredientsList = []
