@@ -2,7 +2,7 @@ import fs from 'fs'
 
 export default function WriteToFile(content, name) {
   const filePath = './' + name + '.json'
-  fs.writeFile(filePath, content, (err) => {
+  fs.writeFile(filePath, content, { flag: 'a+' }, (err) => {
     if (err) {
       console.error(err)
       return

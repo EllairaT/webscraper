@@ -22,12 +22,27 @@ axios
     const ingredients = getIngredients($)
 
     const method = getRecipeMethod($)
-
+    const content =
+      '{' +
+      JSON.stringify(header) +
+      ':' +
+      '{' +
+      '"ingredients"' +
+      ':' +
+      ingredients +
+      ',' +
+      '"methods"' +
+      ':' +
+      method +
+      '}' +
+      '}'
     // WriteToFile(JSON.stringify(header), header)
-    WriteToFile(JSON.stringify(ingredients), header)
+    // WriteToFile(JSON.stringify(ingredients), header)
     // WriteToFile(JSON.stringify(method), header)
+    WriteToFile(content, header)
   })
   .catch((err) => {
+    // catch any errors
     console.log('an error occured: ', err)
   })
 
