@@ -36,9 +36,6 @@ axios
       method +
       '}' +
       '}'
-    // WriteToFile(JSON.stringify(header), header)
-    // WriteToFile(JSON.stringify(ingredients), header)
-    // WriteToFile(JSON.stringify(method), header)
     WriteToFile(content, header)
   })
   .catch((err) => {

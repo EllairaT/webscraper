@@ -21,6 +21,5 @@ export default function getIngredients($) {
   let list = {}
   const result = groupBy(ingredientsList, 'section', 'ingredient')
   list['ingredients'] = result
-  // console.log(JSON.stringify(list.ingredients))
   return JSON.stringify(list.ingredients)
 }

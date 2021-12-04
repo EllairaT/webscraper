@@ -13,6 +13,5 @@ export default function getRecipeMethod($) {
 
   const list = {}
   list['methods'] = methodsList
-  // console.log(JSON.stringify(list.methods))
   return JSON.stringify(list.methods)
 }
