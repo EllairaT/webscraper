@@ -48,5 +48,3 @@ export default function scrape() {
     })
     .then(console.log('scraping finished.'))
 }
-
-scrape()
