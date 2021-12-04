@@ -8,39 +8,45 @@ import promptSync from 'prompt-sync'
 import getIngredients from './ingredients.js'
 import getRecipeMethod from './methods.js'
 import WriteToFile from './writeFile.js'
-// prompt
-const prompt = promptSync()
-const url = prompt('Enter a URL: ')
 
-// GET request to website
-axios
-  .get(url)
-  .then((res) => {
-    let $ = cheerio.load(res.data)
-    const header = $('.recipe-title-container h1').text()
+// TODO: refactor to accept URL instead of doing it by prompt
 
-    const ingredients = getIngredients($)
+// get contents from website and write to JSON file
+export default function scrape() {
+  // prompt
+  const prompt = promptSync()
+  const url = prompt('Enter a URL: ')
 
-    const method = getRecipeMethod($)
-    const content =
-      '{' +
-      JSON.stringify(header) +
-      ':' +
-      '{' +
-      '"ingredients"' +
-      ':' +
-      ingredients +
-      ',' +
-      '"methods"' +
-      ':' +
-      method +
-      '}' +
-      '}'
-    WriteToFile(content, header)
-  })
-  .catch((err) => {
-    // catch any errors
-    console.log('an error occured: ', err)
-  })
+  // GET request to website
+  axios
+    .get(url)
+    .then((res) => {
+      let $ = cheerio.load(res.data)
+      const header = $('.recipe-title-container h1').text()
 
-// TODO: write ingredients list and method to JSON file.
+      const ingredients = getIngredients($)
+
+      const method = getRecipeMethod($)
+      const content =
+        '{' +
+        JSON.stringify(header) +
+        ':' +
+        '{' +
+        '"ingredients"' +
+        ':' +
+        ingredients +
+        ',' +
+        '"methods"' +
+        ':' +
+        method +
+        '}' +
+        '}'
+      WriteToFile(content, header)
+    })
+    .catch((err) => {
+      console.log('an error occured: ', err)
+    })
+    .then(console.log('scraping finished.'))
+}
+
+scrape()

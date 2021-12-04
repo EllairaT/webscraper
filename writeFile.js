@@ -1,6 +1,5 @@
 import fs from 'fs'
 
-// TODO: create directory and file if not exists (mkdir)
 export default function WriteToFile(content, name) {
   const directory = './recipes'
   const fileName = directory + '/' + name + '.json'
