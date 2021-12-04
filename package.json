@@ -1,15 +1,16 @@
 {
-  "name": "webscraper",
+  "name": "@ellairat/webscraper",
   "version": "1.0.0",
   "description": "ellai web scraper",
-  "main": "scrape.js",
+  "main": "scrape",
+  "typings": "dist/index",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EllairaT/webscraper.git"
+    "url": "https://github.com/EllairaT/webscraper.git"
   },
   "keywords": [],
   "author": "",
@@ -30,5 +31,8 @@
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
