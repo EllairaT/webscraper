@@ -4,19 +4,12 @@
 
 import axios from 'axios'
 import cheerio from 'cheerio'
-import promptSync from 'prompt-sync'
 import getIngredients from './ingredients.js'
 import getRecipeMethod from './methods.js'
 import WriteToFile from './writeFile.js'
 
-// TODO: refactor to accept URL instead of doing it by prompt
-
 // get contents from website and write to JSON file
-export default function scrape() {
-  // prompt
-  const prompt = promptSync()
-  const url = prompt('Enter a URL: ')
-
+export default function scrape(url) {
   // GET request to website
   axios
     .get(url)
